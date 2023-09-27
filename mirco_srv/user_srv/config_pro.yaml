@@ -1,0 +1,7 @@
+name: user_srv
+mysql:
+  username: 'root'
+  password: 'qq31415926535--'
+  host: 'localhost'
+  port: 3306
+  dbname: 'shop_user_srv'

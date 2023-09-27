@@ -1,0 +1,13 @@
+name: 'user-web'
+user-srv:
+  host: 'localhost'
+  port: 8002
+  name: 'user_srv'
+
+redis:
+  host: 'localhost'
+  port: 6379
+
+consul:
+  host: '192.168.252.135'
+  port: 8500
