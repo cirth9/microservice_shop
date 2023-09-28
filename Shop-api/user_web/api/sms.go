@@ -36,9 +36,8 @@ func SendSms(c *gin.Context) {
 		zap.S().Errorw("[SendSms] Error : ", err.Error())
 		return
 	}
-
 	client, err := dysmsapi.NewClientWithAccessKey("cn-wuhan",
-		"LTAI5tAnKRH5tFTvgtSqJedQ", "R1q4cqtVKRJN48Ud98RYWf7JKpIYye")
+		"LTAI5tAnKRH5tFTvgtSqJedQ", "accessKeySecret")
 	if err != nil {
 		panic(err)
 	}
@@ -51,7 +50,7 @@ func SendSms(c *gin.Context) {
 	request.ApiName = "SendSms"
 	request.QueryParams["RegionId"] = "cn-beijing"
 	request.QueryParams["PhoneNumbers"] = sendSmsForm.Mobile            //手机号
-	request.QueryParams["SignName"] = "慕学在线"                            //阿里云验证过的项目名 自己设置
+	request.QueryParams["SignName"] = "shop"                            //阿里云验证过的项目名 自己设置
 	request.QueryParams["TemplateCode"] = "SMS_181850725"               //阿里云的短信模板号 自己设置
 	request.QueryParams["TemplateParam"] = "{\"code\":" + smsCode + "}" //短信模板中的验证码内容 自己生成   之前试过直接返回，但是失败，加上code成功。
 	response, err := client.ProcessCommonRequest(request)
