@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        v4.23.4
-// source: user.proto
+// source: inventory.proto
 
 package proto
 

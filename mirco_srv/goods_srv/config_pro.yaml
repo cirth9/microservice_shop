@@ -1,0 +1,7 @@
+name: goods_srv
+mysql:
+  goodsname: 'root'
+  password: 'qq31415926535--'
+  host: 'localhost'
+  port: 3306
+  dbname: 'shop_goods_srv'

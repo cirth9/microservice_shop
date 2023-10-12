@@ -8,6 +8,7 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"github.com/anaskhan96/go-password-encoder"
+	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -63,7 +64,6 @@ func (userServer *UserServer) GetUserList(ctx context.Context, in *proto.PageInf
 		log.Println(result.Error)
 		return nil, result.Error
 	}
-
 	rsp := &proto.UserListResponse{}
 	rsp.Total = int32(result.RowsAffected)
 
@@ -72,8 +72,7 @@ func (userServer *UserServer) GetUserList(ctx context.Context, in *proto.PageInf
 		userinfoResp := ModelToResponse(*v)
 		rsp.Data = append(rsp.Data, &userinfoResp)
 	}
-	log.Printf("%+v", rsp.Data)
-	log.Println("GetUserList Successfully")
+	zap.S().Infof(">>>>>>[GetUserList] data %+v", rsp.Data)
 	return rsp, nil
 }
 

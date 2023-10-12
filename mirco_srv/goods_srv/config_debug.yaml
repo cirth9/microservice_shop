@@ -1,0 +1,17 @@
+name: goods_srv
+
+mysql:
+  goodsname: 'root'
+  password: 'qq31415926535--'
+  host: 'localhost'
+  port: 3306
+  dbname: 'shop_goods_srv'
+consul:
+#  host: '192.168.42.131'
+  host: '192.168.1.109'
+  port: 8500
+
+
+#因为就是在同一台机器上做的项目，这里就整个local_IP方便后续维护好了
+#local: '192.168.42.131'
+local: '192.168.1.109'

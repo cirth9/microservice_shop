@@ -4,7 +4,11 @@ import (
 	"MircoServer/user_srv/config"
 	"MircoServer/user_srv/global"
 	"MircoServer/user_srv/model"
+	"encoding/json"
 	"fmt"
+	"github.com/nacos-group/nacos-sdk-go/clients"
+	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
@@ -16,8 +20,9 @@ import (
 )
 
 var (
-	isDebug        bool
-	configFileName string
+	isDebug             bool
+	nacosConfigFileName string
+	groupId             string
 )
 
 func GetEnv(env string, v *viper.Viper) bool {
@@ -62,27 +67,84 @@ func InitConfig() {
 
 	InitLogger()
 
+	//v := viper.New()
+	//if isDebug = GetEnv("SHOP_ENV", v); isDebug {
+	//	configFileName = "config_debug.yaml"
+	//} else {
+	//	configFileName = "config_pro.yaml"
+	//}
+	//
+	//log.Println(isDebug, configFileName)
+	//v.SetConfigFile(configFileName)
+	//if err := v.ReadInConfig(); err != nil {
+	//	zap.S().Panicf(" 配置文件读取错误,err:%s", err.Error())
+	//}
+	//
+	//zap.S().Debug("name", viper.GetString("name"))
+	//
+	//err := v.Unmarshal(&config.TheServerConfig)
+	//if err != nil {
+	//	zap.S().Panicf("配置文件反序列化错误，err:%s", err.Error())
+	//}
+	//
+	//fmt.Println(config.TheServerConfig)
+
 	v := viper.New()
 	if isDebug = GetEnv("SHOP_ENV", v); isDebug {
-		configFileName = "user_srv/config_debug.yaml"
+		groupId = "dev"
 	} else {
-		configFileName = "user_srv/config_pro.yaml"
+		groupId = "pro"
 	}
 
-	log.Println(isDebug, configFileName)
-	v.SetConfigFile(configFileName)
+	nacosConfigFileName = "config_nacos.yaml"
+	v.SetConfigFile(nacosConfigFileName)
 	if err := v.ReadInConfig(); err != nil {
-		zap.S().Panicf(" 配置文件读取错误,err:%s", err.Error())
+		zap.S().Panic(err)
 	}
 
-	zap.S().Debug("name", viper.GetString("name"))
+	err2 := v.Unmarshal(&config.TheNacosConfig)
+	if err2 != nil {
+		zap.S().Panic(err2)
+	}
 
-	err := v.Unmarshal(&config.TheServerConfig)
+	log.Printf("%+v", config.TheNacosConfig)
+	// 至少一个ServerConfig
+	serverConfigs := []constant.ServerConfig{
+		{
+			IpAddr: config.TheNacosConfig.NacosServer.Ip,
+			Port:   config.TheNacosConfig.NacosServer.Port,
+		},
+	}
+
+	clientConfig := constant.ClientConfig{
+		NamespaceId:         config.TheNacosConfig.NacosClient.NamespaceId, // 如果需要支持多namespace，我们可以创建多个client,它们有不同的NamespaceId。当namespace是public时，此处填空字符串。
+		TimeoutMs:           config.TheNacosConfig.NacosClient.TimeoutMs,
+		NotLoadCacheAtStart: config.TheNacosConfig.NacosClient.NotLoadCacheAtStart,
+		LogDir:              config.TheNacosConfig.NacosClient.LogDir,
+		CacheDir:            config.TheNacosConfig.NacosClient.CacheDir,
+	}
+
+	// 创建动态配置客户端
+	client, err := clients.CreateConfigClient(map[string]interface{}{
+		"serverConfigs": serverConfigs,
+		"clientConfig":  clientConfig,
+	})
 	if err != nil {
-		zap.S().Panicf("配置文件反序列化错误，err:%s", err.Error())
+		panic(err)
+	}
+	userSrvConfig, err := client.GetConfig(vo.ConfigParam{
+		DataId: config.TheNacosConfig.NacosServer.DataId,
+		Group:  groupId,
+	})
+	log.Println(">>>>>>", userSrvConfig)
+	if err != nil {
+		panic(err)
+	}
+	err = json.Unmarshal([]byte(userSrvConfig), &config.TheServerConfig)
+	if err != nil {
+		zap.S().Panic(err)
 	}
 
-	fmt.Println(config.TheServerConfig)
-
+	zap.S().Info("TheServerConfig: ", config.TheServerConfig)
 	InitUserSrvMysqlConfig()
 }

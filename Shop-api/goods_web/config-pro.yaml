@@ -1,0 +1,8 @@
+name: 'Goods-web'
+Goods-srv:
+  host: 'localhost'
+  port: 8002
+
+redis:
+  host: 'localhost'
+  port: 6379

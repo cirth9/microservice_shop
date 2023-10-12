@@ -1,0 +1,690 @@
+2023-10-07T15:26:44.662+0800	DEBUG	rpc/rpc_client.go:290	config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:26:44.682+0800	DEBUG	rpc/rpc_client.go:290	config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:26:44.682+0800	DEBUG	rpc/rpc_client.go:290	config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:26:44.682+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:26:44.800+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:26:46.729+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:26:46.729+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:26:48.772+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:26:48.772+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:26:50.830+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:26:50.830+0800	INFO	rpc/rpc_client.go:322	config-0-7bc97a3c-a0c5-44f2-9823-4cf1ee5fc352 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:26:50.830+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:26:50.942+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:26:51.049+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:26:51.158+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test_nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:26:51.158+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:27:49.406+0800	DEBUG	rpc/rpc_client.go:290	config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:27:49.428+0800	DEBUG	rpc/rpc_client.go:290	config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:27:49.428+0800	DEBUG	rpc/rpc_client.go:290	config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:27:49.428+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:27:49.544+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:27:51.476+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:27:51.476+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:27:53.508+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:27:53.508+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:27:55.535+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:27:55.535+0800	INFO	rpc/rpc_client.go:322	config-0-fbab0205-27ea-4795-b29d-7e08ebe7106c try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:27:55.535+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:27:55.636+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:27:55.749+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:27:55.856+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test_nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:27:55.856+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:29:17.743+0800	DEBUG	rpc/rpc_client.go:290	config-0-461318db-7484-41e7-857e-4834d9a710fa register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:29:17.763+0800	DEBUG	rpc/rpc_client.go:290	config-0-461318db-7484-41e7-857e-4834d9a710fa register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:29:17.763+0800	DEBUG	rpc/rpc_client.go:290	config-0-461318db-7484-41e7-857e-4834d9a710fa register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:29:17.763+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:29:17.876+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:29:19.778+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:29:19.783+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:29:21.822+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:29:21.822+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:29:23.841+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-461318db-7484-41e7-857e-4834d9a710fa fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:29:23.841+0800	INFO	rpc/rpc_client.go:322	config-0-461318db-7484-41e7-857e-4834d9a710fa try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:29:23.841+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:37
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:29:23.944+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:37
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:29:24.058+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:37
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:29:24.164+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test_nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:29:24.164+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:34:13.663+0800	DEBUG	rpc/rpc_client.go:290	config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:34:13.685+0800	DEBUG	rpc/rpc_client.go:290	config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:34:13.685+0800	DEBUG	rpc/rpc_client.go:290	config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:34:13.685+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:34:13.799+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:34:15.712+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:34:15.712+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:34:17.727+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:34:17.728+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:34:19.761+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:34:19.762+0800	INFO	rpc/rpc_client.go:322	config-0-dbdb88b6-6613-4c33-b221-ea6a0979e1ed try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:34:19.762+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:34:19.875+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:34:19.989+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:34:20.090+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test_nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:34:20.090+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:35:46.153+0800	DEBUG	rpc/rpc_client.go:290	config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:35:46.173+0800	DEBUG	rpc/rpc_client.go:290	config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:35:46.173+0800	DEBUG	rpc/rpc_client.go:290	config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:35:46.173+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:35:46.289+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:35:48.208+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:35:48.208+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:35:50.249+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:35:50.249+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:35:52.293+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:35:52.293+0800	INFO	rpc/rpc_client.go:322	config-0-a40cce15-3066-4f66-b5ae-844c0badcb0e try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:35:52.293+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:35:52.402+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:35:52.512+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test_nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:35:52.621+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test_nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:35:52.621+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test_nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:38:14.985+0800	DEBUG	rpc/rpc_client.go:290	config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd register server push request:ConfigChangeNotifyRequest handler:ConfigChangeNotifyRequestHandler
+2023-10-07T15:38:15.005+0800	DEBUG	rpc/rpc_client.go:290	config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd register server push request:ConnectResetRequest handler:ConnectResetRequestHandler
+2023-10-07T15:38:15.005+0800	DEBUG	rpc/rpc_client.go:290	config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd register server push request:ClientDetectionRequest handler:ClientDetectionRequestHandler
+2023-10-07T15:38:15.005+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:38:15.120+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:38:17.043+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:38:17.043+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:38:19.087+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:38:19.087+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:38:21.126+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:38:21.126+0800	INFO	rpc/rpc_client.go:322	config-0-221da4de-2ef0-4b3a-b31e-25fd1a4e72cd try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:38:21.126+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:38:21.235+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:38:21.344+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:39
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:38:21.453+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:38:21.453+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:39:59.684+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:39:59.821+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:40:01.740+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:40:01.740+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:40:03.785+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:40:03.785+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:40:05.803+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:40:05.803+0800	INFO	rpc/rpc_client.go:322	config-0-7c7aa3dc-9514-43f3-b94d-cf6f7322cbf7 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:40:05.803+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:40:05.912+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:40:06.019+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:40:06.128+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:40:06.128+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:41:39.455+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 try to connect to server on start up, server: {serverIp:localhost serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:41:39.581+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:41:41.806+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 127.0.0.1:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:41:41.806+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 try to connect to server on start up, server: {serverIp:localhost serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:41:44.149+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 127.0.0.1:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:41:44.149+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 try to connect to server on start up, server: {serverIp:localhost serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:41:46.483+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 127.0.0.1:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:41:46.483+0800	INFO	rpc/rpc_client.go:322	config-0-8be9671f-ea6d-4550-8ca3-129cc2034d19 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:41:46.483+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:41:46.592+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:41:46.707+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:41:46.808+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:41:46.808+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:43:18.369+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:43:18.502+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:43:20.439+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:43:20.439+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:43:22.480+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:43:22.480+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:43:24.508+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:43:24.508+0800	INFO	rpc/rpc_client.go:322	config-0-5f03cf85-504e-4541-98b6-7e5fa98e6e61 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:43:24.508+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:43:24.617+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:43:24.727+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:43:24.836+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos.yaml, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:43:24.836+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:45:00.946+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 try to connect to server on start up, server: {serverIp:172.17.0.3 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:45:01.077+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:45:03.966+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = DeadlineExceeded desc = context deadline exceeded, start up retry times left=2
+2023-10-07T15:45:03.966+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 try to connect to server on start up, server: {serverIp:172.17.0.3 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:45:06.980+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = DeadlineExceeded desc = context deadline exceeded, start up retry times left=1
+2023-10-07T15:45:06.980+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 try to connect to server on start up, server: {serverIp:172.17.0.3 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:45:09.990+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = DeadlineExceeded desc = context deadline exceeded, start up retry times left=0
+2023-10-07T15:45:09.990+0800	INFO	rpc/rpc_client.go:322	config-0-8f7e3382-5e9f-478c-b44e-6c5a0a2037b2 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:45:09.990+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:45:10.097+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:45:10.205+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:38
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:45:10.314+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos.yaml, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:45:10.314+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:49:37.676+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:49:37.810+0800	INFO	util/common.go:96	Local IP:172.23.144.1
+2023-10-07T15:49:39.739+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=2
+2023-10-07T15:49:39.739+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:49:41.781+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=1
+2023-10-07T15:49:41.781+0800	INFO	rpc/rpc_client.go:224	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 try to connect to server on start up, server: {serverIp:192.168.1.109 serverPort:8848 serverGrpcPort:9848}
+2023-10-07T15:49:43.813+0800	WARN	rpc/rpc_client.go:226	[RpcClient.Start] config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 fail to connect to server on start up, error message=server check request failed , err:rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp 192.168.1.109:9848: connectex: No connection could be made because the target machine actively refused it.", start up retry times left=0
+2023-10-07T15:49:43.813+0800	INFO	rpc/rpc_client.go:322	config-0-0d2ec705-8904-4558-aa57-46405f8e66f2 try to re connect to a new server, server is not appointed, will choose a random server.
+2023-10-07T15:49:43.813+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=0, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:35
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:49:43.921+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=1, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:35
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:49:44.029+0800	ERROR	rpc/rpc_client.go:522	Send request fail, request=ConfigQueryRequest, body={"requestId":"","group":"test","dataId":"test-nacos.yaml","tenant":"0484a732-86ac-4e39-a6c0-f478b7a76549","module":"config","tag":""}, retryTimes=2, error=client not connected, current status:STARTING
+github.com/nacos-group/nacos-sdk-go/v2/common/remote/rpc.(*RpcClient).Request
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/common/remote/rpc/rpc_client.go:487
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).requestProxy
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:64
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigProxy).queryConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_proxy.go:116
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).getConfigInner
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:204
+github.com/nacos-group/nacos-sdk-go/v2/clients/config_client.(*ConfigClient).GetConfig
+	D:/go/pkg/mod/github.com/nacos-group/nacos-sdk-go/v2@v2.2.3/clients/config_client/config_client.go:148
+main.main
+	E:/Project/micoservice_shop/Test/testNacos/main.go:35
+runtime.main
+	D:/Go_HOME/src/runtime/proc.go:250
+runtime.goexit
+	D:/Go_HOME/src/runtime/asm_amd64.s:1598
+2023-10-07T15:49:44.139+0800	ERROR	config_client/config_client.go:207	get config from server error:client not connected, current status:STARTING, dataId=test-nacos.yaml, group=test, namespaceId=0484a732-86ac-4e39-a6c0-f478b7a76549
+2023-10-07T15:49:44.139+0800	ERROR	cache/disk_cache.go:101	get config from cache, cacheKey:test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549, cacheDir:tmp/nacos/cache\config, error:open tmp/nacos/cache\config\test-nacos.yaml@@test@@0484a732-86ac-4e39-a6c0-f478b7a76549: The system cannot find the path specified. 
+2023-10-07T15:51:25.467+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>

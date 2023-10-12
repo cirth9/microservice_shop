@@ -1,0 +1,17 @@
+{
+    "name": "user_srv",
+    "host":"192.168.1.105",
+    "tags":["user"],
+    "mysql": {
+        "username": "root",
+        "password": "qq31415926535--",
+        "host": "localhost",
+        "port": 3306,
+        "dbname": "shop_user_srv"
+    },
+    "consul": {
+        "host": "192.168.1.105",
+        "port": 8500
+    },
+    "local": "192.168.1.105"
+}

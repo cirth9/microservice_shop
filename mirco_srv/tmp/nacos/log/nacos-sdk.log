@@ -1,0 +1,13 @@
+2023-10-07T16:24:06.992+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2023-10-07T16:24:07.020+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv","group":"dev","tenant":"ef7200a6-86ce-4412-aed3-fe94f459778f"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T16:24:07.023+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv","group":"dev","tenant":"ef7200a6-86ce-4412-aed3-fe94f459778f"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T16:24:07.025+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv","group":"dev","tenant":"ef7200a6-86ce-4412-aed3-fe94f459778f"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T16:24:07.030+0800	[31mERROR[0m	config_client/config_client.go:202	get config from server error:[404] config data not exist
+ 
+2023-10-07T16:24:07.031+0800	[33mWARN[0m	config_client/config_client.go:207	[client.GetConfig] config not found, dataId: user-srv, group: dev, namespaceId: ef7200a6-86ce-4412-aed3-fe94f459778f.

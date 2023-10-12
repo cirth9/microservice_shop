@@ -11,6 +11,7 @@ func InitUserRouter(r *gin.RouterGroup) {
 	{
 		//middleware.AdminAuth(),
 		userGroup.GET("/list", middleware.JWTAuth(), middleware.AdminAuth(), api.GetUserList)
+		userGroup.GET("/test_list", api.GetUserList)
 		userGroup.POST("/login", api.PasswordLogin)
 		userGroup.POST("/register", api.UserRegister)
 	}

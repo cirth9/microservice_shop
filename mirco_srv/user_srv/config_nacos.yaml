@@ -1,0 +1,10 @@
+nacos_server:
+  dataId: 'user-srv.json'
+  ip: '192.168.1.105'
+  port: 8848
+nacos_client:
+  namespace_id: 'ef7200a6-86ce-4412-aed3-fe94f459778f'
+  timeout_ms: 5000
+  not_load_cache_at_start: true
+  log_dir: "tmp/nacos/log"
+  cache_dir: "tmp/nacos/cache"

@@ -1,0 +1,2 @@
+{"level":"info","ts":1695393241.849449,"caller":"zap_test/zaptest.go:25","msg":"failed to fetch URL","url":"test","attempt":3,"backoff":1}
+{"level":"info","ts":1695393241.849449,"caller":"zap_test/zaptest.go:31","msg":"Failed to fetch URL: test"}

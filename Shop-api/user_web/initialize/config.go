@@ -4,9 +4,13 @@ import (
 	"Shop-api/user_web/config"
 	"Shop-api/user_web/global"
 	"Shop-api/user_web/proto"
+	"encoding/json"
 	"fmt"
 	"github.com/fsnotify/fsnotify"
-	consulApi "github.com/hashicorp/consul/api"
+	_ "github.com/mbobakov/grpc-consul-resolver"
+	"github.com/nacos-group/nacos-sdk-go/clients"
+	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/redis/go-redis/v9"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
@@ -16,8 +20,9 @@ import (
 )
 
 var (
-	isDebug        bool
-	configFileName string
+	isDebug             bool
+	groupId             string
+	nacosConfigFileName string
 )
 
 func GetEnv(env string, v *viper.Viper) bool {
@@ -26,44 +31,30 @@ func GetEnv(env string, v *viper.Viper) bool {
 }
 
 func initGrpcConfig() {
-	//初始化grpc设置
-	cfg := consulApi.DefaultConfig()
-	cfg.Address = fmt.Sprintf("%s:%d",
+	var err error
+	target := fmt.Sprintf("consul://%s:%d/%s?wait=%s&tag=%s",
 		config.TheServerConfig.ConsulConfigInfo.Host,
-		config.TheServerConfig.ConsulConfigInfo.Port)
-	userSrvHost := ""
-	userSrvPort := 0
-	client, err := consulApi.NewClient(cfg)
-	if err != nil {
-		panic(err)
-	}
+		config.TheServerConfig.ConsulConfigInfo.Port,
+		config.TheServerConfig.UserSrvInfo.Name,
+		"15s", config.TheServerConfig.UserSrvInfo.Tags[0])
+	zap.S().Info(target)
+	zap.S().Info("[GRPC_Target]  ", target)
 
-	data, err := client.Agent().ServicesWithFilter(fmt.Sprintf(`Service == "%s"`,
-		config.TheServerConfig.UserSrvInfo.Name))
-	if err != nil {
-		panic(err)
-	}
-	for _, value := range data {
-		userSrvHost = value.Address
-		userSrvPort = value.Port
-		break
-	}
-	if userSrvHost == "" {
-		zap.S().Fatal("[InitGrpcConfig] 连接 【用户服务失败】")
-		return
-	}
+	//负载均衡，轮询
+	global.UserConn, err = grpc.Dial(
+		target,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy": "round_robin"}`),
+	)
 
-	global.GrpcAddress = fmt.Sprintf("%s:%d",
-		userSrvHost,
-		userSrvPort)
-	zap.S().Info("GrpcAddress:", global.GrpcAddress)
-	global.UserConn, err = grpc.Dial(global.GrpcAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		zap.S().Errorw("GRPC服务连接失败",
 			"error", err.Error())
 		return
 	}
+
 	global.UserClient = proto.NewUserClient(global.UserConn)
+
 }
 
 func initRedisConfig() {
@@ -80,31 +71,66 @@ func InitConfig() {
 	//初始化基本配置信息
 	v := viper.New()
 	if isDebug = GetEnv("SHOP_ENV", v); isDebug {
-		configFileName = "user_web/config-debug.yaml"
+		groupId = "dev"
 	} else {
-		configFileName = "user_web/config-pro.yaml"
+		groupId = "pro"
 	}
 
-	log.Println(isDebug, configFileName)
-	v.SetConfigFile(configFileName)
+	log.Println(isDebug, groupId)
+	nacosConfigFileName = "config_nacos.yaml"
+	v.SetConfigFile(nacosConfigFileName)
 	if err := v.ReadInConfig(); err != nil {
 		zap.S().Panicf(" 配置文件读取错误,err:%s", err.Error())
 	}
 
 	zap.S().Debug("name ", viper.GetString("name"))
 
-	err := v.Unmarshal(&config.TheServerConfig)
+	err := v.Unmarshal(&config.TheNacosConfig)
 	if err != nil {
 		zap.S().Panicf("配置文件反序列化错误，err:%s", err.Error())
 	}
 
-	fmt.Println(config.TheServerConfig)
+	log.Println(config.TheNacosConfig)
 
-	//grpc config
-	initGrpcConfig()
+	serverConfig := []constant.ServerConfig{
+		{
+			IpAddr: config.TheNacosConfig.NacosServer.Ip,
+			Port:   config.TheNacosConfig.NacosServer.Port,
+		},
+	}
 
+	clientConfig := constant.ClientConfig{
+		TimeoutMs:            config.TheNacosConfig.NacosClient.TimeoutMs,
+		NamespaceId:          config.TheNacosConfig.NacosClient.NamespaceId,
+		CacheDir:             config.TheNacosConfig.NacosClient.CacheDir,
+		NotLoadCacheAtStart:  config.TheNacosConfig.NacosClient.NotLoadCacheAtStart,
+		UpdateCacheWhenEmpty: false,
+		LogDir:               config.TheNacosConfig.NacosClient.LogDir,
+	}
+
+	configClient, err := clients.CreateConfigClient(map[string]interface{}{
+		"serverConfigs": serverConfig,
+		"clientConfig":  clientConfig,
+	})
+	if err != nil {
+		zap.S().Fatal(err)
+	}
+
+	getConfig, err := configClient.GetConfig(vo.ConfigParam{
+		DataId: config.TheNacosConfig.NacosServer.DataId,
+		Group:  groupId,
+	})
+	log.Println("getConfig:", getConfig)
+	err = json.Unmarshal([]byte(getConfig), &config.TheServerConfig)
+	if err != nil {
+		zap.S().Fatal(err)
+	}
+
+	log.Println(config.TheServerConfig)
 	//redis config
 	initRedisConfig()
+
+	initGrpcConfig()
 }
 
 func WatchConfigChange(v *viper.Viper) {

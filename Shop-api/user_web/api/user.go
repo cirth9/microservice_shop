@@ -41,7 +41,6 @@ func GrpcErrorToHTTP(err error, c *gin.Context) {
 }
 
 func GetUserList(c *gin.Context) {
-
 	zap.S().Debug("grpcAddress", global.GrpcAddress)
 	UserListResp, err := global.UserClient.GetUserList(context.Background(), &proto.PageInfo{
 		Page:  1,
