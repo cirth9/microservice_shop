@@ -139,13 +139,13 @@ func InitConfig() {
 }
 
 func TestSell(Wg *sync.WaitGroup) {
+	defer Wg.Done()
 	_, _ = inventoryServer.Sell(context.Background(), &proto.SellInfo{
 		GoodsInfo: []*proto.GoodsInvInfo{{
 			GoodsId: 19,
 			Num:     10,
 		}},
 	})
-	Wg.Done()
 }
 func main() {
 	InitConfig()

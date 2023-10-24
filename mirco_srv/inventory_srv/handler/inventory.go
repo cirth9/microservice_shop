@@ -48,9 +48,15 @@ var m sync.Mutex
 func (*InventoryServer) Sell(ctx context.Context, req *proto.SellInfo) (*emptypb.Empty, error) {
 	//扣减库存， 本地事务 [1:10,  2:5, 3: 20]
 	redisAddr := fmt.Sprintf("%s:%d", config.TheServerConfig.RedisConfig.Host, config.TheServerConfig.RedisConfig.Port)
-	zap.S().Info(redisAddr)
 	client := goredislib.NewClient(&goredislib.Options{
-		Addr: redisAddr,
+		Addr:           redisAddr,
+		DB:             0,
+		PoolFIFO:       true,
+		PoolSize:       1000,
+		PoolTimeout:    0,
+		MinIdleConns:   0,
+		MaxIdleConns:   1000,
+		MaxActiveConns: 1000,
 	})
 	pool := goredis.NewPool(client)
 
@@ -58,7 +64,11 @@ func (*InventoryServer) Sell(ctx context.Context, req *proto.SellInfo) (*emptypb
 
 	tx := global.MysqlDB.Begin()
 	//m.Lock()'
-
+	mutexname := "sell_mutex"
+	mutex := rs.NewMutex(mutexname)
+	if err := mutex.Lock(); err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "redis lock failed")
+	}
 	for _, goodInfo := range req.GoodsInfo {
 		var inv model.Inventory
 		////for update悲观锁
@@ -101,11 +111,7 @@ func (*InventoryServer) Sell(ctx context.Context, req *proto.SellInfo) (*emptypb
 		//	} else {
 		//		break
 		//	}
-		mutexname := "sell_mutex"
-		mutex := rs.NewMutex(mutexname)
-		if err := mutex.Lock(); err != nil {
-			return nil, status.Errorf(codes.InvalidArgument, "redis lock failed")
-		}
+
 		if result := global.MysqlDB.Where(&model.Inventory{Goods: goodInfo.GoodsId}).First(&inv); result.RowsAffected == 0 {
 			tx.Rollback() //回滚之前的操作
 			zap.S().Info(result.Error)
@@ -118,12 +124,13 @@ func (*InventoryServer) Sell(ctx context.Context, req *proto.SellInfo) (*emptypb
 		}
 		inv.Stocks -= goodInfo.Num
 		tx.Save(&inv)
-		if ok, err := mutex.Unlock(); !ok || err != nil {
-			return nil, status.Errorf(codes.InvalidArgument, "redis unlock failed")
-		}
 	}
-	tx.Commit() // 需要自己手动提交操作
 
+	tx.Commit() // 需要自己手动提交操作
+	if ok, err := mutex.Unlock(); !ok || err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "redis unlock failed")
+	}
+	fmt.Println("Successfully")
 	//m.Unlock()  //释放锁
 	return &emptypb.Empty{}, nil
 }
